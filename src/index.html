@@ -1,0 +1,22 @@
+<html>
+
+<head>
+    <title>PWA</title>
+</head>
+
+<body>
+    <script>
+        if('serviceWorker' in navigator){
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js', { scope: '/' })
+                .then((registration) => {
+                    console.info(registration.scope)
+                })
+                .catch(err => {
+                    console.error(err)
+                })
+            })
+        }
+    </script>
+</body>
+</html>
